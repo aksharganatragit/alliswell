@@ -1,0 +1,13 @@
+# Netlify deployment config for the "All is well" storefront (Angular 19 SPA).
+[build]
+  command = "npm run build"
+  publish = "dist/all-is-well/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback — every route serves the app shell so client-side routing works.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

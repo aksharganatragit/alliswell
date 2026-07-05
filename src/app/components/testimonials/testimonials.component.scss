@@ -1,0 +1,69 @@
+.t-rail {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 2px 6px;
+}
+.t-rail::-webkit-scrollbar { display: none; }
+.t-rail:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; border-radius: 12px; }
+
+.t-card {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  margin: 0;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.t-stars {
+  display: inline-flex;
+  gap: 3px;
+  color: var(--sage);
+}
+
+.t-quote {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--forest);
+  flex: 1;
+}
+
+.t-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.t-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  flex: none;
+}
+.t-meta { display: flex; flex-direction: column; line-height: 1.3; }
+.t-name { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+
+@media (min-width: 680px) {
+  /* Two cards visible at a time */
+  .t-card { flex-basis: calc(50% - 8px); }
+  .t-quote { font-size: 16.5px; }
+}

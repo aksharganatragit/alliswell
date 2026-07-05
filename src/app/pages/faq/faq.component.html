@@ -1,0 +1,36 @@
+<div class="container">
+  <header class="page-head">
+    <span class="eyebrow"><app-icon name="help" [size]="14"></app-icon> Good to know</span>
+    <h1 class="h1">Frequently asked questions</h1>
+    <p class="page-head__lede">Delivery, payment, WhatsApp ordering and more. Still unsure? Just message us.</p>
+  </header>
+
+  <section class="section">
+    <ul class="faq">
+      @for (item of faqs; track item.q; let i = $index) {
+        <li class="faq__item card" [class.is-open]="open() === i">
+          <button class="faq__q" (click)="toggle(i)" [attr.aria-expanded]="open() === i">
+            <span>{{ item.q }}</span>
+            <app-icon name="chevron-down" [size]="19"></app-icon>
+          </button>
+          @if (open() === i) {
+            <div class="faq__a"><p>{{ item.a }}</p></div>
+          }
+        </li>
+      }
+    </ul>
+
+    <div class="faq__cta card">
+      <div>
+        <h2 class="section-title">Still have a question?</h2>
+        <p class="faq__cta-body">We’re happy to help on WhatsApp — usually within a few hours.</p>
+      </div>
+      <div class="faq__cta-btns">
+        <button class="btn btn--wa" (click)="contact()">
+          <app-icon name="whatsapp" [size]="19"></app-icon> Chat on WhatsApp
+        </button>
+        <a routerLink="/contact" class="btn btn--ghost">Contact us</a>
+      </div>
+    </div>
+  </section>
+</div>

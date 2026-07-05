@@ -1,0 +1,37 @@
+<div class="container">
+  <header class="page-head">
+    <span class="eyebrow"><app-icon name="leaf" [size]="14"></app-icon> Our range</span>
+    <h1 class="h1">All products</h1>
+    <p class="page-head__lede">
+      Genuine herbal essentials, crafted with care in Rajkot. Add what you need and confirm your
+      order on WhatsApp.
+    </p>
+  </header>
+
+  <div class="shopbar">
+    <span class="shopbar__count">{{ count() }} {{ count() === 1 ? 'product' : 'products' }}</span>
+    <label class="shopbar__sort">
+      <app-icon name="chevron-down" [size]="16"></app-icon>
+      <span class="sr-only">Sort products</span>
+      <select
+        #sortSelect
+        class="shopbar__select"
+        [value]="sortKey()"
+        (change)="onSort(sortSelect.value)"
+        aria-label="Sort products"
+      >
+        @for (opt of sortOptions; track opt.value) {
+          <option [value]="opt.value">Sort: {{ opt.label }}</option>
+        }
+      </select>
+    </label>
+  </div>
+
+  <section class="section shop-grid-section">
+    <div class="product-grid">
+      @for (product of products(); track product.id) {
+        <app-product-card [product]="product"></app-product-card>
+      }
+    </div>
+  </section>
+</div>

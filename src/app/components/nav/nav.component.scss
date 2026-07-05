@@ -1,0 +1,185 @@
+/* The host element is the flex child of the app shell, so stickiness must
+   live here — sticking the inner <header> gives it no room to travel. */
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: block;
+}
+.nav {
+  /* At the top: blends into the ivory page (no highlight). */
+  background: var(--ivory);
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+/* Once scrolled: solid surface + soft shadow so it reads as a fixed bar. */
+.nav.is-scrolled {
+  background: #F7F2E7;
+  border-bottom-color: var(--hairline);
+  box-shadow: 0 4px 18px rgba(47, 90, 67, 0.08);
+}
+
+.nav__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 62px;
+}
+
+.nav__logo {
+  flex: none;
+}
+
+.nav__links {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+
+  a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+  a:hover { background: rgba(47, 90, 67, 0.06); color: var(--forest); }
+  a.is-active { color: var(--forest); font-weight: 600; }
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: none;
+}
+
+.nav__badge {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--clay);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Search overlay */
+.search {
+  border-top: 1px solid var(--hairline);
+  background: var(--ivory);
+  padding: 14px 0 18px;
+}
+.search__field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sage);
+}
+.search__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--ink);
+  padding: 8px 0;
+}
+.search__input:focus { outline: none; }
+.search__input::placeholder { color: var(--muted); }
+
+.search__results {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.search__result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 10px;
+}
+.search__result:hover { background: rgba(47, 90, 67, 0.06); }
+.search__thumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  background: rgba(92, 138, 112, 0.14);
+  color: var(--sage);
+  flex: none;
+}
+.search__info { display: flex; flex-direction: column; flex: 1; }
+.search__name { font-size: 13px; font-weight: 600; color: var(--ink); }
+.search__empty { margin-top: 12px; color: var(--muted); font-size: 13px; }
+
+/* Mobile menu drawer */
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(36, 28, 18, 0.4);
+}
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 61;
+  width: min(84vw, 320px);
+  background: var(--ivory);
+  border-left: 1px solid var(--hairline);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  animation: drawer-in 0.18s ease;
+}
+@keyframes drawer-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--hairline);
+}
+.drawer__links {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 6px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline);
+  }
+  a .app-icon, a app-icon { color: var(--sage); }
+  a.is-active { color: var(--forest); font-weight: 600; }
+}
+
+@media (min-width: 900px) {
+  .nav__links { display: flex; }
+  .nav__hamburger { display: none; }
+}

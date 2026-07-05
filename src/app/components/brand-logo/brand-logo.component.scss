@@ -1,0 +1,54 @@
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--forest);
+  color: var(--ivory);
+  flex: none;
+}
+
+.words {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--forest);
+  letter-spacing: -0.01em;
+}
+
+.sublabel {
+  font-size: 8.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sage);
+  margin-top: 3px;
+}
+
+/* On the dark footer band */
+.lockup--light {
+  .mark {
+    background: var(--ivory);
+    color: var(--forest);
+  }
+  .wordmark {
+    color: var(--ivory);
+  }
+  .sublabel {
+    color: rgba(244, 238, 225, 0.7);
+  }
+}

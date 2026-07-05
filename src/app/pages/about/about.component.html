@@ -1,0 +1,66 @@
+<div class="container">
+  <header class="page-head">
+    <span class="eyebrow"><app-icon name="leaf" [size]="14"></app-icon> Our story</span>
+    <h1 class="h1">Rooted in Rajkot</h1>
+    <p class="page-head__lede">
+      All is well is a Rajkot-based family health brand crafting genuine herb-infused products. Every
+      formula is made with care and sourced with integrity.
+    </p>
+  </header>
+
+  <section class="section about">
+    <div class="about__cols">
+      <article class="card about__block">
+        <span class="about__icon"><app-icon name="heart" [size]="24"></app-icon></span>
+        <h2 class="section-title">Who we are</h2>
+        <p>
+          We’re a family-run herbal wellness brand serving our own city first. What began as remedies made
+          for people we know has grown into a small, honest catalogue of everyday wellness essentials —
+          made the way we’d make them for our own family.
+        </p>
+      </article>
+
+      <article class="card about__block">
+        <span class="about__icon"><app-icon name="sprout" [size]="24"></app-icon></span>
+        <h2 class="section-title">Sourcing & making</h2>
+        <p>
+          Our ingredients are selected for quality and prepared in small batches to keep them fresh.
+          (Placeholder — real sourcing and preparation details will be added here, including where key
+          herbs come from and how each product is made.)
+        </p>
+      </article>
+
+      <article class="card about__block">
+        <span class="about__icon"><app-icon name="truck" [size]="24"></app-icon></span>
+        <h2 class="section-title">Delivery area</h2>
+        <p>
+          We deliver across India. Orders are confirmed on WhatsApp and dispatched with care — local
+          Rajkot orders usually arrive within 1–3 days, and the rest of India within a few days.
+        </p>
+      </article>
+
+      <article class="card about__block about__block--addr">
+        <span class="about__icon"><app-icon name="map-pin" [size]="24"></app-icon></span>
+        <h2 class="section-title">Visit us</h2>
+        <p>{{ address }}</p>
+      </article>
+    </div>
+
+    <ul class="about__trust">
+      @for (t of trust; track t.title) {
+        <li class="about__trust-row card">
+          <span class="about__trust-icon"><app-icon [name]="t.icon" [size]="22"></app-icon></span>
+          <div>
+            <h3 class="about__trust-title">{{ t.title }}</h3>
+            <p class="about__trust-body">{{ t.body }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+
+    <div class="about__cta">
+      <a routerLink="/shop" class="btn btn--marigold">Browse products</a>
+      <a routerLink="/how-it-works" class="btn btn--ghost">How ordering works</a>
+    </div>
+  </section>
+</div>

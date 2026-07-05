@@ -1,0 +1,35 @@
+<div class="container">
+  <header class="page-head">
+    <span class="eyebrow"><app-icon name="whatsapp" [size]="14"></app-icon> Ordering made simple</span>
+    <h1 class="h1">How it works</h1>
+    <p class="page-head__lede">
+      Ordering is on WhatsApp for now — quick, personal, and easy to confirm. Here’s all there is to it.
+    </p>
+  </header>
+
+  <section class="section">
+    <ol class="steps">
+      @for (step of steps; track step.title; let i = $index) {
+        <li class="step card">
+          <span class="step__num">{{ i + 1 }}</span>
+          <span class="step__icon"><app-icon [name]="step.icon" [size]="26"></app-icon></span>
+          <h2 class="step__title">{{ step.title }}</h2>
+          <p class="step__body">{{ step.body }}</p>
+        </li>
+      }
+    </ol>
+
+    <div class="hiw-cta card">
+      <div>
+        <h2 class="section-title">Ready when you are</h2>
+        <p class="hiw-cta__body">Start browsing, or say hello on WhatsApp — we’re happy to help.</p>
+      </div>
+      <div class="hiw-cta__btns">
+        <a routerLink="/shop" class="btn btn--marigold">Shop now</a>
+        <button class="btn btn--wa" (click)="order()">
+          <app-icon name="whatsapp" [size]="19"></app-icon> Chat on WhatsApp
+        </button>
+      </div>
+    </div>
+  </section>
+</div>

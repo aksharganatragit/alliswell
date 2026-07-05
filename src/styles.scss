@@ -1,1 +1,237 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================================
+   All is well — Herbal Apothecary design system
+   Global tokens, typography, and shared component classes.
+   Exact hex values per brand brief.
+   ============================================================ */
+
+:root {
+  /* Palette */
+  --ivory: #F4EEE1;      /* page background       */
+  --forest: #2F5A43;     /* primary brand         */
+  --sage: #5C8A70;       /* secondary accent      */
+  --clay: #B25333;       /* tertiary / "view all" */
+  --marigold: #D89A2C;   /* the one warm CTA      */
+  --ink: #241C12;        /* body text             */
+  --card: #FFFDF8;       /* card / ticket surface */
+  --wa: #25D366;         /* WhatsApp green only    */
+
+  --card-border: rgba(47, 90, 67, 0.13);
+  --hairline: rgba(47, 90, 67, 0.10);
+  --muted: rgba(36, 28, 18, 0.60);
+
+  /* Type */
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  /* Layout */
+  --page-max: 1120px;
+  --gutter: 18px;
+  --radius-card: 14px;
+  --radius-btn: 10px;
+
+  /* Soft shadow — used ONLY on floating button + hero ticket */
+  --shadow-soft: 0 8px 24px rgba(47, 90, 67, 0.16);
+  --shadow-fab: 0 6px 18px rgba(37, 211, 102, 0.38);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0; }
+
+/* ---- Type scale ---------------------------------------------------- */
+.h1        { font-family: var(--serif); font-weight: 600; color: var(--forest); font-size: 27px; line-height: 1.16; letter-spacing: -0.015em; }
+.section-title { font-family: var(--serif); font-weight: 600; color: var(--forest); font-size: 19px; }
+.price     { font-family: var(--sans); font-weight: 600; font-size: 15px; color: var(--forest); }
+.meta      { font-size: 11px; color: var(--muted); }
+
+/* eyebrow — the ONLY place uppercase is allowed */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sage);
+}
+
+@media (min-width: 720px) {
+  body { font-size: 14.5px; }
+  .h1 { font-size: 40px; }
+  .section-title { font-size: 24px; }
+}
+
+/* ---- Layout helpers ------------------------------------------------ */
+.container {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section { padding: 30px 0; }
+@media (min-width: 720px) { .section { padding: 48px 0; } }
+
+.stack-sm > * + * { margin-top: 8px; }
+.stack > * + * { margin-top: 14px; }
+
+/* Section header: title + trailing link */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Product grid — 2 up on mobile, scales up on wider screens */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 640px) { .product-grid { gap: 16px; } }
+@media (min-width: 760px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .product-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* Page intro block used on inner pages */
+.page-head {
+  padding: 26px 0 6px;
+}
+.page-head__lede {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 60ch;
+}
+@media (min-width: 720px) {
+  .page-head { padding: 40px 0 8px; }
+  .page-head__lede { font-size: 15px; }
+}
+
+/* ---- Buttons ------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  padding: 12px 18px;
+  border-radius: var(--radius-btn);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.06s ease, filter 0.15s ease, background 0.15s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
+.btn svg { flex: none; }
+
+.btn--marigold { background: var(--marigold); color: var(--ink); }
+.btn--marigold:hover { filter: brightness(1.04); }
+
+.btn--ghost { background: transparent; border-color: var(--forest); color: var(--forest); }
+.btn--ghost:hover { background: rgba(47, 90, 67, 0.06); }
+
+.btn--green { background: var(--forest); color: var(--ivory); }
+.btn--green:hover { filter: brightness(1.08); }
+
+.btn--wa { background: var(--wa); color: #fff; }
+.btn--wa:hover { filter: brightness(1.03); }
+
+.btn--block { width: 100%; }
+.btn--sm { padding: 9px 13px; font-size: 13px; }
+.btn--lg { padding: 15px 28px; font-size: 15.5px; border-radius: 12px; }
+@media (min-width: 720px) { .btn--lg { padding: 17px 34px; font-size: 16.5px; } }
+
+/* ---- Cards --------------------------------------------------------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+}
+
+/* ---- Badge --------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--marigold);
+  color: var(--ink);
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Links --------------------------------------------------------- */
+.link-clay {
+  color: var(--clay);
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.link-clay:hover { text-decoration: underline; }
+
+/* ---- Icon-only control -------------------------------------------- */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--forest);
+  cursor: pointer;
+  position: relative;
+}
+.icon-btn:hover { background: rgba(47, 90, 67, 0.07); }
+.icon-btn:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

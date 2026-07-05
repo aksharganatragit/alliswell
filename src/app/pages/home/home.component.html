@@ -1,0 +1,84 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero__inner">
+    <span class="eyebrow"><app-icon name="sparkles" [size]="15"></app-icon> Crafted with natural-origin ingredients · Pan India delivery</span>
+    <h1 class="h1 hero__title">Pure care for your family, naturally.</h1>
+    <p class="hero__lede">
+      Trusted herbal essentials made with care — browse and order for delivery across India.
+    </p>
+    <div class="hero__cta">
+      <a routerLink="/shop" class="btn btn--marigold btn--lg">Shop now</a>
+      <a routerLink="/how-it-works" class="btn btn--ghost btn--lg">How it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip (informational, not clickable) -->
+<section class="section trust">
+  <div class="container">
+    <ul class="trust__grid">
+      @for (t of trust; track t.label) {
+        <li class="trust__item">
+          <span class="trust__icon"><app-icon [name]="t.icon" [size]="22"></app-icon></span>
+          <span class="trust__label">{{ t.label }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Featured products -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Our products</h2>
+      <a routerLink="/shop" class="link-clay">View all <app-icon name="arrow-right" [size]="16"></app-icon></a>
+    </div>
+    <div class="product-grid">
+      @for (product of products; track product.id) {
+        <app-product-card [product]="product"></app-product-card>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<app-testimonials></app-testimonials>
+
+<!-- How it works teaser -->
+<section class="section hiw">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Simple to order</h2>
+      <a routerLink="/how-it-works" class="link-clay">Learn more <app-icon name="arrow-right" [size]="16"></app-icon></a>
+    </div>
+    <ol class="hiw__strip">
+      @for (step of steps; track step.label; let i = $index) {
+        <li class="hiw__step">
+          <span class="hiw__icon"><app-icon [name]="step.icon" [size]="22"></app-icon></span>
+          <span class="hiw__label">{{ step.label }}</span>
+          @if (i < steps.length - 1) {
+            <span class="hiw__arrow" aria-hidden="true"><app-icon name="arrow-right" [size]="18"></app-icon></span>
+          }
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<!-- About strip -->
+<section class="section">
+  <div class="container">
+    <div class="about-strip card">
+      <span class="about-strip__icon"><app-icon name="leaf" [size]="30"></app-icon></span>
+      <div>
+        <h2 class="section-title">Rooted in Rajkot</h2>
+        <p class="about-strip__body">
+          All is well is a family health brand crafting genuine herbal products with care.
+          Every formula is made thoughtfully with natural-origin ingredients and sourced with integrity.
+        </p>
+        <p class="meta about-strip__addr">{{ address }}</p>
+      </div>
+    </div>
+  </div>
+</section>

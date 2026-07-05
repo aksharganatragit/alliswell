@@ -1,59 +1,63 @@
-# AllIsWell
+# All is well — herbal wellness storefront
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+Family-facing herbal wellness storefront for **All is well** (Rajkot). Angular 19,
+mobile-first, WhatsApp-only ordering for now. Front-end only — a backend / payment
+gateway can be added later without a rewrite (see `orderService`).
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Run locally
 
 ```bash
-ng generate component component-name
+npm install
+npm start          # ng serve → http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Build
 
 ```bash
-ng generate --help
+npm run build      # output: dist/all-is-well/browser
 ```
 
-## Building
+## Deploy to Netlify
 
-To build the project run:
+The repo is Netlify-ready — `netlify.toml` sets the build command, publish dir
+(`dist/all-is-well/browser`) and the SPA redirect. Either:
 
-```bash
-ng build
+- Connect the repo in the Netlify UI (it reads `netlify.toml` automatically), or
+- `netlify deploy --prod` with the Netlify CLI.
+
+## Before going live — things to fill in
+
+- **WhatsApp number:** `src/app/config/business.ts` → `whatsappPhone` (currently the
+  placeholder `91XXXXXXXXXX`; digits only, no `+`). Every order/contact CTA routes
+  through this.
+- **Product images:** each product in `src/app/data/products.ts` has an `images: []`
+  array of icon-placeholder keys. Swap them for real image URLs — the grid thumbnail
+  and the detail-page swipe carousel then show photos with no code changes.
+- **Copy:** product descriptions/dosage/ingredients/warnings, About sourcing, and the
+  Terms/Privacy bullets are placeholders ready to be replaced.
+
+## Structure
+
+```
+src/app
+├── config/business.ts        Brand + contact details (edit WhatsApp # here)
+├── data/products.ts          Catalog (4 products, scales to ~15)
+├── models/product.model.ts
+├── services/
+│   ├── cart.service.ts       In-memory cart (sessionStorage), drives nav badge
+│   ├── order.service.ts      Order dispatch abstraction — WhatsApp now, swappable
+│   └── ui.service.ts         Cart-drawer open state
+├── components/               nav, footer, whatsapp-fab, leaf-background, icon,
+│                             brand-logo, product-card, cart-drawer, carousel
+└── pages/                    home, shop, product-detail, how-it-works,
+                              about, faq, contact
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Notes
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Theme:** "Herbal Apothecary" palette + Fraunces/Inter, all tokens in
+  `src/styles.scss`. Flat design; soft shadow only on the floating button + hero ticket.
+- **Botanical background:** enriched leaf/flower/herb watermark at ~7% opacity behind
+  every page (`leaf-background.component.ts`).
+- **Ordering:** all CTAs → `OrderService` → `https://wa.me/…` pre-filled message.
+  Payment gateway is a documented `TODO(payments)` in `order.service.ts`.

@@ -1,0 +1,39 @@
+<article class="pcard">
+  <a [routerLink]="['/product', product.slug]" class="pcard__media" [attr.aria-label]="product.name">
+    @if (product.bestSeller) {
+      <span class="badge pcard__badge">
+        <app-icon name="star" [size]="13"></app-icon> Best seller
+      </span>
+    }
+    <span class="pcard__thumb">
+      <app-icon [name]="product.icon" [size]="46" [strokeWidth]="1.5"></app-icon>
+    </span>
+  </a>
+
+  <div class="pcard__body">
+    <a [routerLink]="['/product', product.slug]" class="pcard__name">{{ product.name }}</a>
+    <span class="meta">{{ product.size }}</span>
+    <div class="pcard__row">
+      <span class="price">{{ formatPrice(product.price) }}</span>
+      @if (qty() === 0) {
+        <button
+          class="btn btn--marigold btn--sm pcard__add"
+          (click)="add()"
+          [attr.aria-label]="'Add ' + product.name + ' to cart'"
+        >
+          <app-icon name="plus" [size]="16"></app-icon> Add
+        </button>
+      } @else {
+        <div class="pcard__stepper" role="group" [attr.aria-label]="product.name + ' quantity'">
+          <button class="pcard__step" (click)="dec()" [attr.aria-label]="'Decrease ' + product.name">
+            <app-icon name="minus" [size]="15"></app-icon>
+          </button>
+          <span class="pcard__qty" aria-live="polite">{{ qty() }}</span>
+          <button class="pcard__step" (click)="inc()" [attr.aria-label]="'Increase ' + product.name">
+            <app-icon name="plus" [size]="15"></app-icon>
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</article>

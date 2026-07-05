@@ -1,0 +1,87 @@
+<div class="container">
+  <header class="page-head">
+    <span class="eyebrow"><app-icon name="phone" [size]="14"></app-icon> Get in touch</span>
+    <h1 class="h1">Contact us</h1>
+    <p class="page-head__lede">
+      The quickest way to reach us is WhatsApp. Prefer to write? Use the form and we’ll get back to you.
+    </p>
+  </header>
+
+  <section class="section contact">
+    <div class="contact__grid">
+      <!-- Details + WhatsApp -->
+      <div class="contact__side">
+        <div class="card contact__card">
+          <span class="contact__icon"><app-icon name="whatsapp" [size]="24"></app-icon></span>
+          <h2 class="section-title">Chat with us</h2>
+          <p class="contact__body">WhatsApp is our main way to take orders and answer questions right now.</p>
+          <button class="btn btn--wa btn--block" (click)="chat()">
+            <app-icon name="whatsapp" [size]="19"></app-icon> Chat on WhatsApp
+          </button>
+        </div>
+
+        <div class="card contact__card">
+          <span class="contact__icon"><app-icon name="map-pin" [size]="24"></app-icon></span>
+          <h2 class="section-title">Visit us</h2>
+          <p class="contact__addr">{{ address }}</p>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <form class="card contact__form" (submit)="submit($event)">
+        <h2 class="section-title">Send a message</h2>
+        <p class="contact__form-note">A backend is coming soon. For now this opens WhatsApp with your details filled in.</p>
+
+        <label class="field">
+          <span class="field__label">Your name</span>
+          <input class="field__input" type="text" name="name" autocomplete="name"
+                 [value]="name()" (input)="name.set($any($event.target).value)" placeholder="e.g. Priya Shah" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Phone number</span>
+          <input class="field__input" type="tel" name="phone" autocomplete="tel"
+                 [value]="phone()" (input)="phone.set($any($event.target).value)" placeholder="e.g. 98250 12345" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Message</span>
+          <textarea class="field__input field__textarea" name="message" rows="4"
+                    [value]="message()" (input)="message.set($any($event.target).value)"
+                    placeholder="How can we help?"></textarea>
+        </label>
+
+        <button class="btn btn--green btn--block" type="submit">
+          <app-icon name="send" [size]="18"></app-icon> Send message
+        </button>
+
+        @if (sent()) {
+          <p class="contact__sent"><app-icon name="check" [size]="16"></app-icon> Thanks! We’ve opened WhatsApp so you can send your message.</p>
+        }
+      </form>
+    </div>
+
+    <!-- Terms & Privacy -->
+    <div class="legal">
+      <div class="legal__divider"></div>
+
+      <div class="legal__cols">
+        <article>
+          <h2 class="section-title">Terms of use</h2>
+          <ul class="legal__list">
+            @for (t of terms; track t) { <li>{{ t }}</li> }
+          </ul>
+        </article>
+
+        <article>
+          <h2 class="section-title">Privacy policy</h2>
+          <ul class="legal__list">
+            @for (p of privacy; track p) { <li>{{ p }}</li> }
+          </ul>
+        </article>
+      </div>
+
+      <p class="legal__note meta">Short and honest — full terms will be expanded as we grow.</p>
+    </div>
+  </section>
+</div>

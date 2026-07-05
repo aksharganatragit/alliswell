@@ -1,0 +1,128 @@
+/* Hero — single centered column (Option B) */
+.hero {
+  padding: 40px 0 20px;
+}
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.hero__title {
+  margin-top: 14px;
+  max-width: 16ch;
+}
+.hero__lede {
+  margin-top: 14px;
+  font-size: 14.5px;
+  color: var(--ink);
+  max-width: 48ch;
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+/* Trust strip — informational, clearly NOT clickable */
+.trust__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 22px;
+}
+.trust__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: default;
+}
+.trust__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(92, 138, 112, 0.14);
+  color: var(--sage);
+  flex: none;
+}
+.trust__label { font-size: 13.5px; font-weight: 500; line-height: 1.35; color: var(--ink); }
+
+/* How it works teaser strip */
+.hiw__strip {
+  list-style: none;
+  margin: 0;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+}
+.hiw__step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.hiw__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(47, 90, 67, 0.09);
+  color: var(--forest);
+  flex: none;
+}
+.hiw__label { font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.hiw__arrow { color: var(--sage); margin-left: auto; flex: none; }
+
+/* About strip */
+.about-strip {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  align-items: flex-start;
+}
+.about-strip__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: rgba(92, 138, 112, 0.14);
+  color: var(--sage);
+  flex: none;
+}
+.about-strip__body {
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  max-width: 62ch;
+}
+.about-strip__addr { margin-top: 10px; }
+
+/* Small screens: teaser strip tweaks */
+@media (max-width: 560px) {
+  .hiw__label { font-size: 11.5px; }
+  .hiw__arrow { display: none; }
+  .hiw__icon { width: 36px; height: 36px; }
+}
+
+/* Desktop hero */
+@media (min-width: 720px) {
+  .hero { padding: 64px 0 32px; }
+  .hero__lede { font-size: 16px; }
+  .trust__grid { grid-template-columns: repeat(4, 1fr); }
+}

@@ -1,0 +1,36 @@
+<section class="section testimonials">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Loved by families across India</h2>
+    </div>
+
+    <div
+      #rail
+      class="t-rail"
+      (mouseenter)="stop()"
+      (mouseleave)="start()"
+      (focusin)="stop()"
+      (focusout)="start()"
+      tabindex="0"
+      aria-label="Customer testimonials"
+    >
+      @for (t of testimonials; track t.name) {
+        <figure class="t-card">
+          <div class="t-stars" [attr.aria-label]="t.rating + ' out of 5 stars'">
+            @for (filled of t.stars; track $index) {
+              <app-icon name="star" [size]="15" [filled]="filled"></app-icon>
+            }
+          </div>
+          <blockquote class="t-quote">“{{ t.quote }}”</blockquote>
+          <figcaption class="t-person">
+            <span class="t-avatar" aria-hidden="true">{{ t.initials }}</span>
+            <span class="t-meta">
+              <span class="t-name">{{ t.name }}</span>
+              <span class="meta">Verified customer</span>
+            </span>
+          </figcaption>
+        </figure>
+      }
+    </div>
+  </div>
+</section>

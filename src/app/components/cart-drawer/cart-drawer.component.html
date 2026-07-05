@@ -1,0 +1,60 @@
+@if (open()) {
+  <div class="cart-scrim" (click)="close()"></div>
+
+  <aside class="cart" role="dialog" aria-label="Your cart">
+    <header class="cart__head">
+      <div>
+        <span class="eyebrow"><app-icon name="cart" [size]="14"></app-icon> Your cart</span>
+        <h2 class="section-title">{{ count() }} {{ count() === 1 ? 'item' : 'items' }}</h2>
+      </div>
+      <button class="icon-btn" (click)="close()" aria-label="Close cart">
+        <app-icon name="close" [size]="22"></app-icon>
+      </button>
+    </header>
+
+    @if (isEmpty()) {
+      <div class="cart__empty">
+        <span class="cart__empty-icon"><app-icon name="cart" [size]="40" [strokeWidth]="1.4"></app-icon></span>
+        <p>Your cart is empty.</p>
+        <a routerLink="/shop" (click)="close()" class="btn btn--ghost">Browse products</a>
+      </div>
+    } @else {
+      <ul class="cart__items">
+        @for (item of items(); track item.product.id) {
+          <li class="cart__item">
+            <span class="cart__thumb"><app-icon [name]="item.product.icon" [size]="26"></app-icon></span>
+            <div class="cart__info">
+              <span class="cart__name">{{ item.product.name }}</span>
+              <span class="meta">{{ item.product.size }} · {{ formatPrice(item.product.price) }}</span>
+              <div class="cart__stepper">
+                <button class="step" (click)="dec(item.product.id)" [attr.aria-label]="'Decrease ' + item.product.name">
+                  <app-icon name="minus" [size]="15"></app-icon>
+                </button>
+                <span class="step__qty" aria-live="polite">{{ item.qty }}</span>
+                <button class="step" (click)="inc(item.product.id)" [attr.aria-label]="'Increase ' + item.product.name">
+                  <app-icon name="plus" [size]="15"></app-icon>
+                </button>
+                <button class="cart__remove" (click)="remove(item.product.id)" [attr.aria-label]="'Remove ' + item.product.name">
+                  <app-icon name="trash" [size]="16"></app-icon>
+                </button>
+              </div>
+            </div>
+            <span class="cart__line-price price">{{ formatPrice(item.product.price * item.qty) }}</span>
+          </li>
+        }
+      </ul>
+
+      <footer class="cart__foot">
+        <div class="cart__subtotal">
+          <span>Subtotal</span>
+          <span class="price">{{ formatPrice(subtotal()) }}</span>
+        </div>
+        <p class="cart__note">Delivery confirmed on WhatsApp. Cash or online payment.</p>
+        <button class="btn btn--wa btn--block" (click)="sendOrder()">
+          <app-icon name="whatsapp" [size]="20"></app-icon> Send order on WhatsApp
+        </button>
+        <button class="cart__clear" (click)="clear()">Clear cart</button>
+      </footer>
+    }
+  </aside>
+}
