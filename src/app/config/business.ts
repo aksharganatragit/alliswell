@@ -11,11 +11,9 @@ export const BUSINESS = {
   addressShort: 'C1/404, Sadguru Colony, AG Chowk, Kalawad Road, Rajkot – 360005',
   city: 'Rajkot',
   // WhatsApp business number. Digits only, no "+" (E.164): 91 = India.
-  whatsappPhone: '917226010246',
+  whatsappPhone: '919510010079',
   // Call number. Digits only, no "+" (used to build tel: links).
-  // TODO: swap for the client's real number before check-in.
-  phone: '917226010246',
-  phoneDisplay: '+91 72260 10246',
-  // TODO: swap for the client's real inbox before check-in (test value for now).
-  email: 'akshar.bb@gmail.com',
+  phone: '919510010079',
+  phoneDisplay: '+91 95100 10079',
+  email: 'sairajdr@gmail.com',
 } as const;
