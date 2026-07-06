@@ -13,9 +13,8 @@ import { IconComponent } from '../icon/icon.component';
  *
  * Uses native CSS scroll-snap so touch/drag swiping works on mobile out of the
  * box; prev/next buttons and dots drive the same scroller for desktop. Renders
- * one slide per entry in `images`. Entries are icon-placeholder keys today and
- * will become real image URLs later — swap the slide template's <app-icon> for
- * an <img> when photography lands; the carousel logic is unchanged.
+ * one <img> slide per URL in `images`; when `images` is empty it shows a single
+ * `fallbackIcon` placeholder slide.
  */
 @Component({
   selector: 'app-carousel',
@@ -27,6 +26,8 @@ import { IconComponent } from '../icon/icon.component';
 })
 export class CarouselComponent {
   @Input({ required: true }) images!: string[];
+  /** Icon name shown as a single placeholder slide when `images` is empty. */
+  @Input() fallbackIcon = '';
   @Input() alt = '';
 
   @ViewChild('track') track!: ElementRef<HTMLDivElement>;

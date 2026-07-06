@@ -1,13 +1,18 @@
 <article class="pcard">
   <a [routerLink]="['/product', product.slug]" class="pcard__media" [attr.aria-label]="product.name">
     @if (product.bestSeller) {
-      <span class="badge pcard__badge">
-        <app-icon name="star" [size]="13"></app-icon> Best seller
+      <span class="pcard__badge" title="Best seller">
+        <app-icon name="star" [size]="13" [filled]="true"></app-icon>
+        <span class="pcard__badge-text">Best seller</span>
       </span>
     }
-    <span class="pcard__thumb">
-      <app-icon [name]="product.icon" [size]="46" [strokeWidth]="1.5"></app-icon>
-    </span>
+    @if (product.images.length) {
+      <img class="pcard__img" [src]="product.images[0]" [alt]="product.name" loading="lazy" />
+    } @else {
+      <span class="pcard__thumb">
+        <app-icon [name]="product.icon" [size]="46" [strokeWidth]="1.5"></app-icon>
+      </span>
+    }
   </a>
 
   <div class="pcard__body">

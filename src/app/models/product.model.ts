@@ -9,12 +9,12 @@ export interface Product {
   /** Price in INR (rupees, integer). */
   price: number;
   category: ProductCategory;
-  /** Icon name used for the placeholder thumbnail (see IconComponent). */
+  /** Icon name used as the placeholder thumbnail when no images exist. */
   icon: string;
   /**
-   * Product images. Icon placeholders for now; will later be real image
-   * URLs passed as an array, e.g. ["front.jpg", "side.jpg", "label.jpg"].
-   * The detail carousel renders one slide per entry.
+   * Real product image URLs, e.g. ["/products/ayuska.jpg", ...]. Served from
+   * the `public/` folder (root-absolute paths). When empty, the UI falls back
+   * to the `icon` placeholder. The detail carousel renders one slide per entry.
    */
   images: string[];
   bestSeller?: boolean;

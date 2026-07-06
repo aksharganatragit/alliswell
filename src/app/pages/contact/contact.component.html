@@ -8,58 +8,86 @@
   </header>
 
   <section class="section contact">
-    <div class="contact__grid">
-      <!-- Details + WhatsApp -->
-      <div class="contact__side">
-        <div class="card contact__card">
-          <span class="contact__icon"><app-icon name="whatsapp" [size]="24"></app-icon></span>
-          <h2 class="section-title">Chat with us</h2>
-          <p class="contact__body">WhatsApp is our main way to take orders and answer questions right now.</p>
-          <button class="btn btn--wa btn--block" (click)="chat()">
-            <app-icon name="whatsapp" [size]="19"></app-icon> Chat on WhatsApp
-          </button>
-        </div>
-
-        <div class="card contact__card">
-          <span class="contact__icon"><app-icon name="map-pin" [size]="24"></app-icon></span>
-          <h2 class="section-title">Visit us</h2>
-          <p class="contact__addr">{{ address }}</p>
-        </div>
+    <!-- Contact methods (row across the top) -->
+    <div class="contact__methods">
+      <div class="card contact__card">
+        <span class="contact__icon"><app-icon name="phone" [size]="24"></app-icon></span>
+        <h2 class="section-title">Call us</h2>
+        <p class="contact__body">Prefer to talk? Call us directly — we’re happy to help.</p>
+        <a class="btn btn--marigold btn--block contact__cta" [href]="telHref">
+          <app-icon name="phone" [size]="18"></app-icon> Call now
+        </a>
       </div>
 
-      <!-- Contact form -->
-      <form class="card contact__form" (submit)="submit($event)">
-        <h2 class="section-title">Send a message</h2>
-        <p class="contact__form-note">A backend is coming soon. For now this opens WhatsApp with your details filled in.</p>
+      <div class="card contact__card">
+        <span class="contact__icon"><app-icon name="whatsapp" [size]="24"></app-icon></span>
+        <h2 class="section-title">Chat with us</h2>
+        <p class="contact__body">WhatsApp is our main way to take orders and answer questions right now.</p>
+        <button class="btn btn--wa btn--block contact__cta" (click)="chat()">
+          <app-icon name="whatsapp" [size]="19"></app-icon> Chat on WhatsApp
+        </button>
+      </div>
 
+      <div class="card contact__card">
+        <span class="contact__icon"><app-icon name="mail" [size]="24"></app-icon></span>
+        <h2 class="section-title">Mail us</h2>
+        <p class="contact__body">Send us an email and we’ll get back to you as soon as we can.</p>
+        <a class="btn btn--green btn--block contact__cta" [href]="mailHref">
+          <app-icon name="mail" [size]="18"></app-icon> Write to us
+        </a>
+      </div>
+
+      <div class="card contact__card">
+        <span class="contact__icon"><app-icon name="map-pin" [size]="24"></app-icon></span>
+        <h2 class="section-title">Visit us</h2>
+        <p class="contact__addr contact__cta">{{ address }}</p>
+      </div>
+    </div>
+
+    <!-- Contact form (full width below) -->
+    <form class="card contact__form" (submit)="submit($event)" novalidate>
+      <h2 class="section-title">Send a message</h2>
+      <p class="contact__form-note">A backend is coming soon. For now this opens WhatsApp with your details filled in.</p>
+
+      <div class="contact__fields">
         <label class="field">
-          <span class="field__label">Your name</span>
+          <span class="field__label">Your name <span class="field__req">*</span></span>
           <input class="field__input" type="text" name="name" autocomplete="name"
+                 [class.is-invalid]="nameError()" [attr.aria-invalid]="!!nameError()" aria-required="true"
                  [value]="name()" (input)="name.set($any($event.target).value)" placeholder="e.g. Priya Shah" />
+          @if (nameError()) { <span class="field__error">{{ nameError() }}</span> }
         </label>
 
         <label class="field">
-          <span class="field__label">Phone number</span>
-          <input class="field__input" type="tel" name="phone" autocomplete="tel"
+          <span class="field__label">Phone number <span class="field__req">*</span></span>
+          <input class="field__input" type="tel" name="phone" autocomplete="tel" inputmode="numeric" maxlength="15"
+                 [class.is-invalid]="phoneError()" [attr.aria-invalid]="!!phoneError()" aria-required="true"
                  [value]="phone()" (input)="phone.set($any($event.target).value)" placeholder="e.g. 98250 12345" />
+          @if (phoneError()) { <span class="field__error">{{ phoneError() }}</span> }
         </label>
 
-        <label class="field">
+        <label class="field field--full">
+          <span class="field__label">Place / area</span>
+          <input class="field__input" type="text" name="place" autocomplete="address-level2"
+                 [value]="place()" (input)="place.set($any($event.target).value)" placeholder="e.g. Kalawad Road, Rajkot" />
+        </label>
+
+        <label class="field field--full">
           <span class="field__label">Message</span>
           <textarea class="field__input field__textarea" name="message" rows="4"
                     [value]="message()" (input)="message.set($any($event.target).value)"
                     placeholder="How can we help?"></textarea>
         </label>
+      </div>
 
-        <button class="btn btn--green btn--block" type="submit">
-          <app-icon name="send" [size]="18"></app-icon> Send message
-        </button>
+      <button class="btn btn--green btn--block" type="submit">
+        <app-icon name="send" [size]="18"></app-icon> Send message
+      </button>
 
-        @if (sent()) {
-          <p class="contact__sent"><app-icon name="check" [size]="16"></app-icon> Thanks! We’ve opened WhatsApp so you can send your message.</p>
-        }
-      </form>
-    </div>
+      @if (sent()) {
+        <p class="contact__sent"><app-icon name="check" [size]="16"></app-icon> Thanks! We’ve opened WhatsApp so you can send your message.</p>
+      }
+    </form>
 
     <!-- Terms & Privacy -->
     <div class="legal">

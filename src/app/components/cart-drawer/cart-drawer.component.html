@@ -22,7 +22,13 @@
       <ul class="cart__items">
         @for (item of items(); track item.product.id) {
           <li class="cart__item">
-            <span class="cart__thumb"><app-icon [name]="item.product.icon" [size]="26"></app-icon></span>
+            <span class="cart__thumb">
+              @if (item.product.images.length) {
+                <img [src]="item.product.images[0]" [alt]="item.product.name" />
+              } @else {
+                <app-icon [name]="item.product.icon" [size]="26"></app-icon>
+              }
+            </span>
             <div class="cart__info">
               <span class="cart__name">{{ item.product.name }}</span>
               <span class="meta">{{ item.product.size }} · {{ formatPrice(item.product.price) }}</span>

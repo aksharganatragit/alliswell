@@ -1,47 +1,36 @@
-.fab {
+.fab-stack {
   position: fixed;
   right: 16px;
   bottom: 18px;
   z-index: 50;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
+  gap: 12px;
 }
 
-.fab__label {
-  background: var(--card);
-  color: var(--forest);
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--card-border);
-  box-shadow: var(--shadow-soft);
-  white-space: nowrap;
-}
-
-.fab__circle {
+.fab-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 52px;
   height: 52px;
+  border: none;
   border-radius: 50%;
-  background: var(--wa);
   color: #fff;
-  box-shadow: var(--shadow-fab);
+  cursor: pointer;
   flex: none;
   transition: transform 0.12s ease;
 }
-.fab:hover .fab__circle { transform: scale(1.05); }
-.fab:active .fab__circle { transform: scale(0.97); }
-.fab:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; border-radius: 999px; }
+.fab-btn:hover { transform: scale(1.05); }
+.fab-btn:active { transform: scale(0.97); }
+.fab-btn:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
 
-/* Hide the pill on very small screens to avoid crowding, keep the circle */
-@media (max-width: 380px) {
-  .fab__label { display: none; }
+.fab-btn--call {
+  background: var(--forest);
+  box-shadow: 0 6px 18px rgba(47, 90, 67, 0.34);
+}
+.fab-btn--wa {
+  background: var(--wa);
+  box-shadow: var(--shadow-fab);
 }

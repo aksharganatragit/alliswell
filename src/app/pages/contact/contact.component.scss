@@ -1,14 +1,14 @@
-.contact__grid {
+/* Contact methods — a row of equal-height cards across the top */
+.contact__methods {
   display: grid;
-  gap: 16px;
-}
-.contact__side {
-  display: grid;
-  gap: 16px;
-  align-content: start;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 22px;
 }
 .contact__card {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .contact__icon {
   display: inline-flex;
@@ -24,12 +24,22 @@
 .contact__card h2 { margin-bottom: 8px; }
 .contact__body { font-size: 13.5px; color: var(--muted); line-height: 1.55; margin-bottom: 16px; }
 .contact__addr { font-family: var(--serif); font-size: 15px; color: var(--forest); line-height: 1.5; }
+/* Pin the card's action (button / address) to the bottom so all cards align */
+.contact__cta { margin-top: auto; }
 
-.contact__form { padding: 20px; }
+.contact__form { padding: 22px; }
 .contact__form h2 { margin-bottom: 6px; }
-.contact__form-note { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+.contact__form-note { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
 
-.field { display: block; margin-bottom: 14px; }
+/* Fields laid out 2-up on wider screens to use the full width */
+.contact__fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.field { display: block; }
+.field--full { grid-column: 1 / -1; }
 .field__label {
   display: block;
   font-size: 12.5px;
@@ -50,6 +60,16 @@
 .field__input:focus-visible { outline: none; border-color: var(--sage); }
 .field__input::placeholder { color: var(--muted); }
 .field__textarea { resize: vertical; min-height: 96px; }
+
+.field__req { color: var(--clay); }
+.field__input.is-invalid { border-color: var(--clay); background: rgba(178, 83, 51, 0.05); }
+.field__error {
+  display: block;
+  margin-top: 5px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--clay);
+}
 
 .contact__sent {
   display: flex;
@@ -95,7 +115,13 @@
 }
 .legal__note { margin-top: 22px; }
 
+@media (min-width: 560px) {
+  .contact__methods { grid-template-columns: repeat(2, 1fr); }
+  .contact__fields { grid-template-columns: 1fr 1fr; }
+}
 @media (min-width: 820px) {
-  .contact__grid { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
   .legal__cols { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (min-width: 960px) {
+  .contact__methods { grid-template-columns: repeat(4, 1fr); }
 }

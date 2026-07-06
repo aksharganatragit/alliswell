@@ -7,6 +7,7 @@ import { CartItem, CartService } from './cart.service';
 export interface ContactDetails {
   name?: string;
   phone?: string;
+  place?: string;
   message?: string;
 }
 
@@ -53,9 +54,19 @@ export class OrderService {
     );
   }
 
-  /** Generic "I'd like to order" opener (floating button, empty cart). */
+  /** Generic "I'd like to order" opener (empty cart). */
   orderGeneric(): void {
     this.dispatch(this.genericOrderIntro());
+  }
+
+  /**
+   * Lead-generation opener for the floating WhatsApp button — a warm,
+   * low-commitment "let's connect" message rather than a hard order.
+   */
+  lead(): void {
+    this.dispatch(
+      `Hey *${BUSINESS.name}* 👋🌿 — I came across your site and I'd love to connect about the products you offer. Could you share a few details? 😊`,
+    );
   }
 
   /** Open a WhatsApp chat for general contact / enquiry (free-text). */
@@ -70,6 +81,7 @@ export class OrderService {
       '',
       details.name ? `*Name:* ${details.name}` : '',
       details.phone ? `*Phone:* ${details.phone}` : '',
+      details.place ? `*Place:* ${details.place}` : '',
       details.message ? `*Message:* ${details.message}` : '',
     ].filter(Boolean);
     this.dispatch(lines.join('\n'));

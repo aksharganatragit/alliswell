@@ -16,7 +16,7 @@ export const PRODUCTS: Product[] = [
     price: 1400,
     category: 'general',
     icon: 'bottle',
-    images: ['bottle', 'bottle', 'bottle'],
+    images: ['/products/ayuska-front.jpg', '/products/ayuska.jpg', '/products/ayuska-ingredients.jpg'],
     bestSeller: true,
     shortDescription: 'Daily herbal wellness tonic for the whole family.',
     description:
@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
     price: 450,
     category: 'skin',
     icon: 'jar',
-    images: ['jar'],
+    images: [],
     shortDescription: 'Soothing herbal ointment for everyday skin care.',
     description:
       'Skeensudha is a gentle herbal ointment made to soothe and care for everyday skin concerns. Non-greasy and suitable for regular use. (Full product copy to be finalised.)',
@@ -55,7 +55,7 @@ export const PRODUCTS: Product[] = [
     price: 550,
     category: 'digestion',
     icon: 'jar',
-    images: ['jar'],
+    images: [],
     shortDescription: 'Herbal churan to support regularity and digestion.',
     description:
       'Nityasudha Churan is a traditional herbal powder blended to gently support digestion and regularity. (Full product copy to be finalised.)',
@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
     price: 1100,
     category: 'immunity',
     icon: 'capsule',
-    images: ['capsule'],
+    images: [],
     shortDescription: 'Herbal capsules formulated to support immunity.',
     description:
       'Gausudha Cap is a herb-infused capsule formulation intended to support the body’s natural immunity. (Full product copy to be finalised.)',

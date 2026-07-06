@@ -26,6 +26,17 @@
   color: var(--sage);
 }
 
+/* Real product photos: taller frame so portrait shots fit fully (contain). */
+.carousel__slide--img {
+  aspect-ratio: 3 / 4;
+  background: #fff;
+}
+.carousel__slide--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .carousel__nav {
   position: absolute;
   top: 50%;

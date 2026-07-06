@@ -59,7 +59,13 @@
               @for (p of results(); track p.id) {
                 <li>
                   <a [routerLink]="['/product', p.slug]" (click)="closeSearch()" class="search__result">
-                    <span class="search__thumb"><app-icon [name]="p.icon" [size]="22"></app-icon></span>
+                    <span class="search__thumb">
+                      @if (p.images.length) {
+                        <img [src]="p.images[0]" [alt]="p.name" />
+                      } @else {
+                        <app-icon [name]="p.icon" [size]="22"></app-icon>
+                      }
+                    </span>
                     <span class="search__info">
                       <span class="search__name">{{ p.name }}</span>
                       <span class="meta">{{ p.size }}</span>

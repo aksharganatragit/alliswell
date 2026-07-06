@@ -23,11 +23,47 @@
   justify-content: center;
   color: var(--sage);
 }
+.pcard__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* Best-seller badge: a star-only circle that expands to text on card hover */
 .pcard__badge {
   position: absolute;
   top: 9px;
   left: 9px;
   z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  background: var(--marigold);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px;
+  box-shadow: 0 2px 6px rgba(36, 28, 18, 0.16);
+  transition: padding 0.25s ease;
+}
+.pcard__badge-text {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  font-size: 10.5px;
+  font-weight: 600;
+  transition: max-width 0.28s ease, opacity 0.2s ease, margin 0.28s ease;
+}
+.pcard:hover .pcard__badge,
+.pcard:focus-within .pcard__badge {
+  padding: 6px 11px 6px 8px;
+}
+.pcard:hover .pcard__badge-text,
+.pcard:focus-within .pcard__badge-text {
+  max-width: 90px;
+  opacity: 1;
+  margin-left: 5px;
 }
 
 .pcard__body {
