@@ -19,7 +19,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--forest);
+  color: var(--ink);
 }
 .shopbar__sort app-icon {
   position: absolute;
@@ -33,7 +33,7 @@
   font-family: var(--sans);
   font-size: 13px;
   font-weight: 600;
-  color: var(--forest);
+  color: var(--ink);
   background: transparent;
   border: 1.5px solid var(--card-border);
   border-radius: 9px;

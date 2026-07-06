@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 70;
-  background: rgba(36, 28, 18, 0.42);
+  background: var(--scrim);
 }
 
 .cart {
@@ -65,7 +65,7 @@
   width: 46px;
   height: 46px;
   border-radius: 10px;
-  background: rgba(92, 138, 112, 0.14);
+  background: var(--tint);
   color: var(--sage);
   flex: none;
   overflow: hidden;
@@ -97,7 +97,7 @@
   color: var(--forest);
   cursor: pointer;
 }
-.step:hover { background: rgba(47, 90, 67, 0.06); }
+.step:hover { background: var(--hover); }
 .step__qty { min-width: 20px; text-align: center; font-weight: 600; font-size: 14px; }
 .cart__remove {
   margin-left: auto;
@@ -108,7 +108,7 @@
   display: inline-flex;
   padding: 4px;
 }
-.cart__remove:hover { color: var(--clay); }
+.cart__remove:hover { color: var(--danger); }
 
 .cart__foot {
   border-top: 1px solid var(--hairline);
@@ -136,4 +136,4 @@
   cursor: pointer;
   text-decoration: underline;
 }
-.cart__clear:hover { color: var(--clay); }
+.cart__clear:hover { color: var(--danger); }

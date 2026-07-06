@@ -20,7 +20,7 @@ export class FooterComponent {
     { icon: 'shield-check', title: 'Herb-infused', sub: 'formulas' },
     { icon: 'truck', title: 'Pan India', sub: 'delivery' },
     { icon: 'heart', title: 'Family', sub: 'safe' },
-    { icon: 'coins', title: 'COD', sub: 'available' },
+    { icon: 'coins', title: 'Pay in', sub: 'advance' },
   ];
 
   readonly links = [

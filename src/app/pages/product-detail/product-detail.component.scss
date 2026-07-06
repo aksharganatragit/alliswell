@@ -44,11 +44,11 @@
   height: 40px;
   border: none;
   border-radius: 8px;
-  background: rgba(244, 238, 225, 0.14);
+  background: rgba(239, 248, 255, 0.14);
   color: var(--ivory);
   cursor: pointer;
 }
-.pd__step:hover { background: rgba(244, 238, 225, 0.24); }
+.pd__step:hover { background: rgba(239, 248, 255, 0.24); }
 .pd__qty { color: var(--ivory); font-size: 14px; font-weight: 600; }
 
 /* Accordion */
@@ -71,7 +71,7 @@
   font-family: var(--serif);
   font-weight: 600;
   font-size: 15.5px;
-  color: var(--forest);
+  color: var(--ink);
   text-align: left;
 }
 .accordion__head app-icon {
@@ -90,7 +90,7 @@
 .accordion__warn {
   display: flex;
   gap: 8px;
-  color: var(--clay);
+  color: var(--danger);
   app-icon { flex: none; margin-top: 2px; }
 }
 

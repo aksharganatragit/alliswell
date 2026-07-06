@@ -5,19 +5,26 @@
    ============================================================ */
 
 :root {
-  /* Palette */
-  --ivory: #F4EEE1;      /* page background       */
-  --forest: #2F5A43;     /* primary brand         */
-  --sage: #5C8A70;       /* secondary accent      */
-  --clay: #B25333;       /* tertiary / "view all" */
-  --marigold: #D89A2C;   /* the one warm CTA      */
-  --ink: #241C12;        /* body text             */
-  --card: #FFFDF8;       /* card / ticket surface */
-  --wa: #25D366;         /* WhatsApp green only    */
+  /* Sky-blue pastel theme (swapped from the original green).
+     Variable NAMES are kept for stability; only the values changed. */
+  --ivory: #EFF8FF;      /* page background — pastel sky        */
+  --forest: #1A5C8F;     /* primary brand: logo, headings, footer */
+  --sage: #2B7CB8;       /* accent blue: icons, borders, thumbs  */
+  --clay: #2B7CB8;       /* tertiary "view all" links, badge     */
+  --marigold: #F5A623;   /* the one warm CTA accent — amber      */
+  --ink: #1A1A1A;        /* body text & headings — near-black    */
+  --card: #FBFDFF;       /* card / ticket surface — cool white   */
+  --wa: #25D366;         /* WhatsApp green only                  */
 
-  --card-border: rgba(47, 90, 67, 0.13);
-  --hairline: rgba(47, 90, 67, 0.10);
-  --muted: rgba(36, 28, 18, 0.60);
+  --tint: #D5EDFA;       /* light-blue thumbnails & step circles */
+  --hover: rgba(26, 92, 143, 0.07);  /* subtle hover surface     */
+  --scrim: rgba(16, 38, 54, 0.45);   /* modal / drawer overlay   */
+  --danger: #D14B45;     /* validation errors & destructive      */
+  --on-brand: #EFF8FF;   /* light content on the dark blue band  */
+
+  --card-border: rgba(26, 92, 143, 0.15);
+  --hairline: rgba(26, 92, 143, 0.10);
+  --muted: rgba(26, 26, 26, 0.60);
 
   /* Type */
   --serif: "Fraunces", Georgia, "Times New Roman", serif;
@@ -30,7 +37,7 @@
   --radius-btn: 10px;
 
   /* Soft shadow — used ONLY on floating button + hero ticket */
-  --shadow-soft: 0 8px 24px rgba(47, 90, 67, 0.16);
+  --shadow-soft: 0 8px 24px rgba(26, 92, 143, 0.18);
   --shadow-fab: 0 6px 18px rgba(37, 211, 102, 0.38);
 }
 
@@ -55,7 +62,7 @@ a { color: inherit; text-decoration: none; }
 h1, h2, h3, h4 {
   font-family: var(--serif);
   font-weight: 600;
-  color: var(--forest);
+  color: var(--ink);
   margin: 0;
   line-height: 1.18;
   letter-spacing: -0.01em;
@@ -64,9 +71,9 @@ h1, h2, h3, h4 {
 p { margin: 0; }
 
 /* ---- Type scale ---------------------------------------------------- */
-.h1        { font-family: var(--serif); font-weight: 600; color: var(--forest); font-size: 27px; line-height: 1.16; letter-spacing: -0.015em; }
-.section-title { font-family: var(--serif); font-weight: 600; color: var(--forest); font-size: 19px; }
-.price     { font-family: var(--sans); font-weight: 600; font-size: 15px; color: var(--forest); }
+.h1        { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: 27px; line-height: 1.16; letter-spacing: -0.015em; }
+.section-title { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: 19px; }
+.price     { font-family: var(--sans); font-weight: 600; font-size: 15px; color: var(--ink); }
 .meta      { font-size: 11px; color: var(--muted); }
 
 /* eyebrow — the ONLY place uppercase is allowed */
@@ -78,7 +85,7 @@ p { margin: 0; }
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--sage);
+  color: var(--ink);
 }
 
 @media (min-width: 720px) {
@@ -161,7 +168,7 @@ p { margin: 0; }
 .btn--marigold { background: var(--marigold); color: var(--ink); }
 .btn--marigold:hover { filter: brightness(1.04); }
 
-.btn--ghost { background: transparent; border-color: var(--forest); color: var(--forest); }
+.btn--ghost { background: transparent; border-color: var(--forest); color: var(--ink); }
 .btn--ghost:hover { background: rgba(47, 90, 67, 0.06); }
 
 .btn--green { background: var(--forest); color: var(--ivory); }
@@ -198,13 +205,14 @@ p { margin: 0; }
 
 /* ---- Links --------------------------------------------------------- */
 .link-clay {
-  color: var(--clay);
+  color: var(--ink);
   font-weight: 600;
   font-size: 13px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
+.link-clay app-icon { color: var(--sage); }
 .link-clay:hover { text-decoration: underline; }
 
 /* ---- Icon-only control -------------------------------------------- */

@@ -12,13 +12,13 @@
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: rgba(92, 138, 112, 0.15);
+  background: var(--tint);
   color: var(--sage);
   margin-bottom: 12px;
 }
 .about__block h2 { margin-bottom: 8px; }
 .about__block p { font-size: 13.5px; line-height: 1.6; color: var(--ink); }
-.about__block--addr p { font-family: var(--serif); font-size: 15px; color: var(--forest); }
+.about__block--addr p { font-family: var(--serif); font-size: 15px; color: var(--ink); }
 
 .about__trust {
   list-style: none;
@@ -39,7 +39,7 @@
   flex: none;
   margin-top: 2px;
 }
-.about__trust-title { font-family: var(--serif); font-weight: 600; font-size: 15px; color: var(--forest); margin-bottom: 3px; }
+.about__trust-title { font-family: var(--serif); font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 3px; }
 .about__trust-body { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
 .about__cta {

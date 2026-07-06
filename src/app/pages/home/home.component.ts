@@ -28,6 +28,6 @@ export class HomeComponent {
     { icon: 'shield-check', label: 'Crafted with natural-origin ingredients' },
     { icon: 'truck', label: 'Pan India delivery' },
     { icon: 'heart', label: 'Family-safe formulas' },
-    { icon: 'coins', label: 'Cash or online payment' },
+    { icon: 'coins', label: 'Pay in advance, online' },
   ];
 }

@@ -48,7 +48,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(92, 138, 112, 0.14);
+  background: var(--tint);
   color: var(--sage);
   flex: none;
 }
@@ -80,7 +80,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(47, 90, 67, 0.09);
+  background: var(--tint);
   color: var(--forest);
   flex: none;
 }
@@ -101,7 +101,7 @@
   width: 54px;
   height: 54px;
   border-radius: 14px;
-  background: rgba(92, 138, 112, 0.14);
+  background: var(--tint);
   color: var(--sage);
   flex: none;
 }

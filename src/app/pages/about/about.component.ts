@@ -18,6 +18,6 @@ export class AboutComponent {
     { icon: 'shield-check', title: 'Herb-infused formulas', body: 'Genuine formulations you can trust for the whole family.' },
     { icon: 'sprout', title: 'Sourced with integrity', body: 'Ingredients chosen carefully and prepared in small batches.' },
     { icon: 'truck', title: 'Pan India delivery', body: 'Delivered across India, with careful packing and tracking.' },
-    { icon: 'coins', title: 'Cash or online payment', body: 'Pay by cash on delivery or online — whatever suits you.' },
+    { icon: 'coins', title: 'Pay in advance', body: 'Simple online or bank-transfer payment before we dispatch.' },
   ];
 }

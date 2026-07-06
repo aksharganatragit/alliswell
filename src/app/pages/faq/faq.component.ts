@@ -27,12 +27,12 @@ export class FaqComponent {
       a: 'Yes — we deliver pan India. Wherever you are in the country, order on WhatsApp and we’ll arrange delivery to you.',
     },
     {
-      q: 'Can I pay cash on delivery?',
-      a: 'Yes. Cash on delivery is available across our delivery area.',
+      q: 'How do I pay for my order?',
+      a: 'We work on a pay-in-advance basis — pay online or by bank transfer, and we dispatch once payment is confirmed. It keeps orders quick and simple.',
     },
     {
-      q: 'Do you accept online payment?',
-      a: 'Yes — you can pay online as well. We’ll share the details when we confirm your order.',
+      q: 'Do you offer cash on delivery?',
+      a: 'Not at the moment. Orders are prepaid — online or by bank transfer — rather than cash on delivery. We’ll share payment details when we confirm your order on WhatsApp.',
     },
     {
       q: 'Are these genuine / authentic products?',

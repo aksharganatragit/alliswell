@@ -3,10 +3,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 /**
  * Botanical watermark that tiles behind every page.
  *
- * Built on the brief's leaf motif, enriched with flowers, herb sprigs and
- * berries (WhatsApp-doodle style) per the chosen direction. Deep green
- * (#2F5A43) strokes at ~7% opacity, tile rotated ~6°. Kept faint so it never
- * competes with text; cards/tickets sit on the near-white surface for
+ * Sky-blue theme: leaves, flowers, herb sprigs, ferns and berries stroked in
+ * the brand blue (#1A5C8F) at ~8% opacity, tile rotated ~6°. Kept faint so it
+ * never competes with text; cards/tickets sit on the near-white surface for
  * legibility. Absolutely positioned at z-index 0 — content wrapper sits above.
  */
 @Component({
@@ -17,32 +16,32 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     <svg
       aria-hidden="true"
       preserveAspectRatio="xMidYMid slice"
-      viewBox="0 0 520 520"
+      viewBox="0 0 560 560"
     >
       <defs>
         <pattern
           id="aiw-botanicals"
-          width="260"
-          height="260"
+          width="280"
+          height="280"
           patternUnits="userSpaceOnUse"
           patternTransform="rotate(6)"
         >
           <g
-            stroke="#2F5A43"
+            stroke="#1A5C8F"
             stroke-width="1.5"
             fill="none"
-            opacity="0.07"
+            opacity="0.08"
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <!-- veined leaf (from the brief) -->
+            <!-- veined leaf -->
             <path d="M34 22 C20 34, 20 60, 34 72 C48 60, 48 34, 34 22 Z" />
             <path d="M34 26 L34 68" />
             <path d="M34 40 C40 36, 44 36, 47 34" />
             <path d="M34 52 C28 48, 24 48, 21 46" />
 
             <!-- five-petal flower -->
-            <g transform="translate(196 44)">
+            <g transform="translate(206 40)">
               <circle cx="0" cy="0" r="4.5" />
               <path d="M0 -6 C6 -12 14 -8 10 0" />
               <path d="M8 3 C16 3 17 12 9 12" />
@@ -52,7 +51,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
             </g>
 
             <!-- herb sprig (rosemary-like) -->
-            <g transform="translate(120 120)">
+            <g transform="translate(122 128)">
               <path d="M0 40 C2 24 6 10 14 -6" />
               <path d="M4 30 L-4 26" /><path d="M6 22 L-2 18" />
               <path d="M8 14 L0 10" /><path d="M11 6 L3 3" />
@@ -61,14 +60,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
             </g>
 
             <!-- small three-leaf sprig -->
-            <g transform="translate(70 176)">
+            <g transform="translate(66 186)">
               <path d="M0 22 L0 4" />
               <path d="M0 12 C-9 10 -12 2 -10 -4 C-3 -3 1 3 0 12 Z" />
               <path d="M0 8 C9 6 12 -2 10 -8 C3 -7 -1 -1 0 8 Z" />
             </g>
 
             <!-- berry cluster -->
-            <g transform="translate(214 196)">
+            <g transform="translate(224 202)">
               <path d="M0 -14 L0 6" />
               <circle cx="0" cy="8" r="4" />
               <circle cx="-7" cy="2" r="3.4" />
@@ -78,7 +77,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
             </g>
 
             <!-- fern frond -->
-            <g transform="translate(180 118)">
+            <g transform="translate(184 120)">
               <path d="M-14 22 C-6 12 2 2 10 -12" />
               <path d="M-9 15 C-13 12 -15 8 -15 4" />
               <path d="M-4 9 C-8 6 -10 2 -10 -2" />
@@ -86,11 +85,46 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
             </g>
 
             <!-- second veined leaf, tilted -->
-            <g transform="translate(46 214) rotate(-24)">
+            <g transform="translate(48 236) rotate(-24)">
               <path d="M0 0 C-12 10, -12 32, 0 42 C12 32, 12 10, 0 0 Z" />
               <path d="M0 4 L0 38" />
               <path d="M0 16 C5 13 8 13 11 11" />
               <path d="M0 26 C-5 23 -8 23 -11 21" />
+            </g>
+
+            <!-- daisy blossom -->
+            <g transform="translate(244 108)">
+              <circle cx="0" cy="0" r="3" />
+              <path d="M0 -4 L0 -11" /><path d="M3 -3 L8 -8" /><path d="M4 0 L11 0" />
+              <path d="M3 3 L8 8" /><path d="M0 4 L0 11" /><path d="M-3 3 L-8 8" />
+              <path d="M-4 0 L-11 0" /><path d="M-3 -3 L-8 -8" />
+            </g>
+
+            <!-- lavender / wheat sprig -->
+            <g transform="translate(28 118)">
+              <path d="M0 44 L0 2" />
+              <path d="M0 6 C-4 2 -5 -3 -3 -7" /><path d="M0 6 C4 2 5 -3 3 -7" />
+              <path d="M0 14 C-4 11 -6 7 -5 3" /><path d="M0 14 C4 11 6 7 5 3" />
+              <path d="M0 22 C-4 19 -6 15 -5 11" /><path d="M0 22 C4 19 6 15 5 11" />
+              <path d="M0 30 C-4 27 -6 23 -5 19" /><path d="M0 30 C4 27 6 23 5 19" />
+            </g>
+
+            <!-- little leaf pair -->
+            <g transform="translate(150 28) rotate(18)">
+              <path d="M0 0 C-8 5 -8 17 0 22 C8 17 8 5 0 0 Z" />
+              <path d="M0 3 L0 19" />
+            </g>
+
+            <!-- curled fiddlehead -->
+            <g transform="translate(250 252)">
+              <path d="M0 18 C0 4 12 2 12 -6 C12 -12 4 -12 4 -6 C4 -2 8 -2 8 -5" />
+            </g>
+
+            <!-- tiny sprout -->
+            <g transform="translate(108 62)">
+              <path d="M0 14 L0 3" />
+              <path d="M0 6 C4 2 9 3 11 -1 C7 -3 2 -1 0 6 Z" />
+              <path d="M0 8 C-4 5 -8 6 -10 3 C-7 0 -3 1 0 8 Z" />
             </g>
           </g>
         </pattern>

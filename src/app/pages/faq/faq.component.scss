@@ -22,7 +22,7 @@
   font-family: var(--serif);
   font-weight: 600;
   font-size: 15px;
-  color: var(--forest);
+  color: var(--ink);
 }
 .faq__q app-icon { color: var(--sage); flex: none; transition: transform 0.18s ease; }
 .faq__item.is-open .faq__q app-icon { transform: rotate(180deg); }

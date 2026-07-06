@@ -2,7 +2,7 @@
   position: relative;
   border-radius: var(--radius-card);
   overflow: hidden;
-  background: rgba(92, 138, 112, 0.13);
+  background: var(--tint);
   border: 1px solid var(--card-border);
 }
 
@@ -70,7 +70,7 @@
   height: 8px;
   border-radius: 50%;
   border: none;
-  background: rgba(47, 90, 67, 0.28);
+  background: rgba(26, 92, 143, 0.30);
   cursor: pointer;
   padding: 0;
   transition: background 0.15s ease, width 0.15s ease;
