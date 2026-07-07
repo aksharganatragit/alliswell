@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
     price: 450,
     category: 'skin',
     icon: 'jar',
-    images: [],
+    images: ['/products/skeensudha.jpg'],
     shortDescription: 'Soothing herbal ointment for everyday skin care.',
     description:
       'Skeensudha is a gentle herbal ointment made to soothe and care for everyday skin concerns. Non-greasy and suitable for regular use. (Full product copy to be finalised.)',
@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
     price: 1100,
     category: 'immunity',
     icon: 'capsule',
-    images: [],
+    images: ['/products/gausudha.jpg'],
     shortDescription: 'Herbal capsules formulated to support immunity.',
     description:
       'Gausudha Cap is a herb-infused capsule formulation intended to support the body’s natural immunity. (Full product copy to be finalised.)',
